@@ -1,0 +1,41 @@
+Open Git Bash here
+
+仓库操作
+git -v : 查看当前安装的git版本
+git init : 在当前路径下创建一个仓库
+git clone url : 克隆远程仓库到本地，url为远程仓库的http地址
+git clone url VALUE : 克隆远程仓库到本地，其名字为VALUE
+git config user.name VALUE : 配置仓库的用户名为VALUE,对应文件为.git下的config
+git config --global user.email VALUE : 配置仓库的邮箱地址为VALUE,且为全局配置,所有仓库均使用该信息[对应文件为C盘用户下的.gitconfig]
+
+文件操作
+git status : 查看当前仓库下的文件状态
+git add VALUE : 在暂存区添加名为VALUE的文件
+git rm --cached VALUE : 将暂存区的VALUE文件移动到工作区
+git commit -m VALUE : 将暂存区的文件提交到存储区，VALUE为当前操作的版本名
+git log : 查看git提交的日志
+git log --oneline : 每次提交的日志在一行显示(版本号会简写)
+git restore VALUE : 恢复误删除(删除操作未提交)的名为VALUE的文件
+git reset --hard VALUE : 重置到版本号为VALUE的操作(此时该操作之后的操作在日志中不显示)
+git revert VALUE : 还原到版本号为VALUE的操作之前(为等效reset操作的下个操作),此时日志中显示所有操作和还原操作
+
+分支操作
+git branch VALUE : 创建名为VALUE的分支
+git branch -v : 查看所有分支，深色为当前分支
+git checkout VALUE : 切换到名为VALUE的分支
+git checkout -b VALUE : 创建并切换到名为VALUE的分支
+git branch -d VALUE : 删除名为VALUE的分支
+git merge VALUE : 合并名为VALUE的分支到当前分支
+
+标签
+git tag NAME VALUE : 给VALUE版本号增加一个NAME标签
+git tag : 查看标签
+git log VALUE : 查看VALUE标签操作及其之前操作的日志
+git tag -d VALUE : 删除VALUE标签
+
+其他
+git remote add origin VALUE : 添加VALUE(远程仓库的访问地址)，配置文件中remote默认名为"origin"
+git remote remove origin : 将origin移除
+git push origin : 发布到远程仓库地址
+ssh-keygen -t rsa -C url : 当地址为SSH时为该地址生成安全证书
+git pull origin : 拉取操作
